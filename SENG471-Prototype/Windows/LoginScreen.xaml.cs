@@ -20,7 +20,7 @@ namespace SENG471_Prototype
     public partial class LoginScreen : UserControl
     {
         public delegate void LoginHandler(string username);
-        public event LoginHandler Login;
+        public event LoginHandler OnLogin;
 
         public LoginScreen()
         {
@@ -35,8 +35,8 @@ namespace SENG471_Prototype
                 case "doctor":
                 case "nurse":
                 case "clerk":
-                    if (Login != null)
-                        Login(lowercase);
+                    if (OnLogin != null)
+                        OnLogin(lowercase);
 
                     break;
 

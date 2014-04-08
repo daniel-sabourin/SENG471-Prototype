@@ -19,6 +19,9 @@ namespace SENG471_Prototype
     /// </summary>
     public partial class MainWindow : Window
     {
+        Dictionary<string, UserControl> WindowDictionary;
+        string UserRole;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -30,6 +33,36 @@ namespace SENG471_Prototype
             {
                 Application.Current.Shutdown();
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            WindowDictionary = new Dictionary<string, UserControl>();
+
+            LoginScreen loginScreen = new LoginScreen();
+            WindowDictionary.Add("login", loginScreen);
+
+            PrimaryWindow primaryWindow = new PrimaryWindow();
+            WindowDictionary.Add("primary", primaryWindow);
+
+            loginScreen.OnLogin += delegate(string username)
+            {
+                UserRole = username;
+
+                UserControl primary = WindowDictionary["primary"];
+                PrimaryWindow ye = (PrimaryWindow)primary;
+                ye.UserRole = UserRole;
+                
+                transitionWindow(primary);
+            };
+
+            MainGrid.Children.Add(loginScreen);
+        }
+
+        private void transitionWindow(UserControl newWindow)
+        {
+            MainGrid.Children.Clear();
+            MainGrid.Children.Add(newWindow);
         }
     }
 }
