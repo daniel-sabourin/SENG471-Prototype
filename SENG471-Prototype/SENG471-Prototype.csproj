@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Windows\MedicalRecord.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Windows\NewMedicalRecordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -76,6 +80,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EventHandlers.cs" />
+    <Compile Include="Windows\MedicalRecord.xaml.cs">
+      <DependentUpon>MedicalRecord.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\NewMedicalRecordWindow.xaml.cs">
       <DependentUpon>NewMedicalRecordWindow.xaml</DependentUpon>
     </Compile>

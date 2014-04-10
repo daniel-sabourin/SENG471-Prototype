@@ -53,6 +53,7 @@ namespace SENG471_Prototype
 
 
         public event EventHandlers.EmptyHandler OnCreateMedicalRecord;
+        public event EventHandlers.EmptyHandler OnSelectedMedicalRecord;
 
         public PrimaryWindow()
         {
@@ -77,13 +78,26 @@ namespace SENG471_Prototype
                 case "(403) 123 - 4567":
                 case "12345678901234567890":
 
-                    MessageBox.Show("Match");
+                    SearchResultsPanel.Visibility = System.Windows.Visibility.Visible;
                     break;
 
                 default:
+                    SearchResultsPanel.Visibility = System.Windows.Visibility.Hidden;
                     MessageBox.Show("No matches found!");
                     break;
 
+            }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int i = 0;
+
+            ResultsListBox.SelectedIndex = -1;
+
+            if (OnSelectedMedicalRecord != null)
+            {
+                OnSelectedMedicalRecord();
             }
         }
 

@@ -17,15 +17,33 @@
             <Button x:Name="SearchButton" Margin="10" Content="Search" VerticalAlignment="Center" Click="SearchButton_Click"></Button>
         </StackPanel>
 
-        <StackPanel Margin="10">
+        <StackPanel x:Name="SearchResultsPanel" Margin="10" Visibility="Hidden">
             <Label Content="Search Results"></Label>
-            <ListBox>
+            <ListBox x:Name="ResultsListBox" SelectionChanged="ListBox_SelectionChanged">
                 <ListBoxItem>
-                    <StackPanel>
-                        <Label Content="ye"></Label>
-                        <Label Content="ye"></Label>
-                        <Label Content="ye"></Label>
-                    </StackPanel>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Label Grid.Row="0" FontWeight="Bold" Content="Name"></Label>
+                        <Label Grid.Row="1" FontWeight="Bold" Content="Phone Number"></Label>
+                        <Label Grid.Row="2" FontWeight="Bold" Content="Alberta Health Card"></Label>
+                        <Label Grid.Row="3" FontWeight="Bold" Content="AHS ID"></Label>
+
+                        <Label Grid.Row="0" Grid.Column="1" Content="Daniel Sabourin"></Label>
+                        <Label Grid.Row="1" Grid.Column="1" Content="(403) 123 - 4567"></Label>
+                        <Label Grid.Row="2" Grid.Column="1" Content="1234567890"></Label>
+                        <Label Grid.Row="3" Grid.Column="1" Content="12345678901234567890"></Label>
+                    </Grid>
 
                 </ListBoxItem>
             </ListBox>

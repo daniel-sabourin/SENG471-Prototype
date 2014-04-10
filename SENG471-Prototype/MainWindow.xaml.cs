@@ -69,6 +69,17 @@ namespace SENG471_Prototype
                 transitionWindow(nmrw);
             };
 
+            primaryWindow.OnSelectedMedicalRecord += delegate()
+            {
+                MedicalRecord mr = new MedicalRecord();
+                mr.OnSavedMedicalRecord += delegate()
+                {
+                    transitionWindow(WindowDictionary["primary"]);
+                };
+
+                transitionWindow(mr);
+            };
+
             #endregion
 
             MainGrid.Children.Add(loginScreen);
