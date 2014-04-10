@@ -41,6 +41,7 @@ namespace SENG471_Prototype
                     break;
 
                 default:
+
                     MessageBox.Show("Invalid username or password!");
                     break;
             }
@@ -60,8 +61,9 @@ namespace SENG471_Prototype
         {
             if (e.Key == Key.Enter)
             {
-                //login(UsernameBox.Text, PasswordBox.Password);
+                login(UsernameBox.Text, PasswordBox.Password);
             }
         }
+
     }
 }

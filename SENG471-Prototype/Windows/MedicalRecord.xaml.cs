@@ -71,18 +71,23 @@ namespace SENG471_Prototype
                     MedicalRecordButton.Visibility = Visibility.Visible;
                     TriageButton.Visibility = Visibility.Collapsed;
                     MedicalHistoryPanel.Visibility = Visibility.Visible;
+                    BookAppointmentPanel.Visibility = Visibility.Collapsed;
                     break;
 
                 case "nurse":
                     MedicalRecordButton.Visibility = Visibility.Collapsed;
                     TriageButton.Visibility = Visibility.Visible;
                     MedicalHistoryPanel.Visibility = Visibility.Visible;
+                    BookAppointmentPanel.Visibility = Visibility.Collapsed;
+
 
                     break;
                 case "clerk":
                     MedicalRecordButton.Visibility = Visibility.Collapsed;
                     TriageButton.Visibility = Visibility.Collapsed;
                     MedicalHistoryPanel.Visibility = Visibility.Collapsed;
+                    BookAppointmentPanel.Visibility = Visibility.Visible;
+
 
                     break;
 

@@ -119,5 +119,13 @@ namespace SENG471_Prototype
             }
         }
 
+        private void SearchQueryBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                SearchButton_Click(null, null);
+            }
+        }
+
     }
 }

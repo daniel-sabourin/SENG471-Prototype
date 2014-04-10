@@ -16,9 +16,8 @@
         </StackPanel>
 
         <StackPanel Orientation="Horizontal" Margin="10">
-            <Label Content="Search" VerticalAlignment="Center" HorizontalAlignment="Center"></Label>
-            <TextBox x:Name="SearchQueryBox" Width="400" VerticalAlignment="Center"></TextBox>
-            <Button x:Name="SearchButton" Margin="10" Content="Search" VerticalAlignment="Center" Click="SearchButton_Click"></Button>
+            <TextBox x:Name="SearchQueryBox" Width="400" VerticalAlignment="Center" Margin="10,0,0,0" KeyUp="SearchQueryBox_KeyUp"></TextBox>
+            <Button x:Name="SearchButton" Width="72" Margin="10" Content="Search" VerticalAlignment="Center" Click="SearchButton_Click"></Button>
         </StackPanel>
 
         <StackPanel x:Name="SearchResultsPanel" Margin="10" Visibility="Hidden">
