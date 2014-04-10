@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SENG471_Prototype.Windows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -78,6 +79,28 @@ namespace SENG471_Prototype
                 };
 
                 transitionWindow(mr);
+            };
+
+            primaryWindow.OnScheduleClicked += delegate()
+            {
+                ScheduleWindow sw = new ScheduleWindow();
+                sw.OnSelectedMedicalRecord += delegate()
+                {
+                    MedicalRecord mr = new MedicalRecord();
+                    mr.OnSavedMedicalRecord += delegate()
+                    {
+                        transitionWindow(WindowDictionary["primary"]);
+                    };
+
+                    transitionWindow(mr);
+                };
+
+                transitionWindow(sw);
+            };
+
+            primaryWindow.OnLogoutClicked += delegate()
+            {
+                transitionWindow(WindowDictionary["login"]);
             };
 
             #endregion

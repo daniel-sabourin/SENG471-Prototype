@@ -32,15 +32,17 @@ namespace SENG471_Prototype
                 {
                     case "doctor":
                         CreateMedicalRecordButton.Visibility = Visibility.Collapsed;
-
+                        ViewScheduleButton.Visibility = Visibility.Visible;
                         break;
 
                     case "nurse":
                         CreateMedicalRecordButton.Visibility = Visibility.Collapsed;
+                        ViewScheduleButton.Visibility = Visibility.Collapsed;
 
                         break;
                     case "clerk":
                         CreateMedicalRecordButton.Visibility = Visibility.Visible;
+                        ViewScheduleButton.Visibility = Visibility.Collapsed;
 
                         break;
 
@@ -54,6 +56,8 @@ namespace SENG471_Prototype
 
         public event EventHandlers.EmptyHandler OnCreateMedicalRecord;
         public event EventHandlers.EmptyHandler OnSelectedMedicalRecord;
+        public event EventHandlers.EmptyHandler OnScheduleClicked;
+        public event EventHandlers.EmptyHandler OnLogoutClicked;
 
         public PrimaryWindow()
         {
@@ -91,13 +95,27 @@ namespace SENG471_Prototype
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            int i = 0;
-
             ResultsListBox.SelectedIndex = -1;
 
             if (OnSelectedMedicalRecord != null)
             {
                 OnSelectedMedicalRecord();
+            }
+        }
+
+        private void ViewScheduleButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (OnScheduleClicked != null)
+            {
+                OnScheduleClicked();
+            }
+        }
+
+        private void LogOutButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (OnLogoutClicked != null)
+            {
+                OnLogoutClicked();
             }
         }
 

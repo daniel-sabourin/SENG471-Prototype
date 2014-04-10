@@ -94,5 +94,18 @@ namespace SENG471_Prototype
             if (OnSavedMedicalRecord != null)
                 OnSavedMedicalRecord();
         }
+
+        private void BookAppointmentButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (ApptPicker.SelectedDate != null && !ApptTime.Text.Equals(""))
+            {
+                MessageBox.Show("Appointment Booked!");
+            }
+            else
+            {
+                MessageBox.Show("Please select a date and time");
+
+            }
+        }
     }
 }
