@@ -6,7 +6,12 @@
              mc:Ignorable="d" KeyUp="UserControl_KeyUp">
     <StackPanel Margin="10">
 
-        <StackPanel Margin="10">
+        <Border Background="White" BorderBrush="Black" CornerRadius="10" Padding="10" BorderThickness="1" Margin="0,5">
+            <StackPanel>
+                
+        <Label FontSize="16" FontWeight="Bold" Content="Personal Information"></Label>
+
+        <StackPanel Margin="10,0,10,10">
             <StackPanel Orientation="Horizontal">
                 <Label Content="First"></Label>
                 <TextBox x:Name="FirstNameBox" Width="100" VerticalAlignment="Center"></TextBox>
@@ -44,7 +49,7 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Margin="10">
+        <StackPanel Margin="10,10,10,0">
             <StackPanel Orientation="Horizontal">
                 <Label Content="Name of Family Physician"></Label>
                 <TextBox x:Name="FamilyPhysicianBox" Width="300" VerticalAlignment="Center"></TextBox>
@@ -56,39 +61,52 @@
             </StackPanel>
             
         </StackPanel>
-        
-        <StackPanel  x:Name="BookAppointmentPanel" Margin="0,10,0,0">
-            <Label FontWeight="Bold" Content="Book an Appointment"></Label>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <DatePicker x:Name="ApptPicker" Margin="10" HorizontalAlignment="Left" Width="200"></DatePicker>
-                <TextBox Name="ApptTime" Width="72" Text="2:00 PM" VerticalAlignment="Center"></TextBox>
-                <Button Margin="10" Name="BookAppointmentButton" Content="Book an Appointment" HorizontalAlignment="Right" Width="150" VerticalAlignment="Center" Click="BookAppointmentButton_Click"></Button>
+
+                <StackPanel Margin="10,0" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Margin="10" Name="CreateRecordButton" Content="Save Record" HorizontalAlignment="Right" Width="100" Click="CreateRecordButton_Click"></Button>
+                    <Button Margin="10" Name="CancelButton" Content="Cancel" HorizontalAlignment="Right" Width="100" Click="CancelButton_Click"></Button>
+                </StackPanel>
+
             </StackPanel>
+        </Border>
 
-            <ComboBox Margin="10" Width="200" HorizontalAlignment="Left">
-                <ComboBoxItem Content="Dr. Taras Gryba"></ComboBoxItem>
-                <ComboBoxItem Content="Dr. Fadi Botros"></ComboBoxItem>
-                <ComboBoxItem Content="Bill Nye"></ComboBoxItem>
-            </ComboBox>
 
-        </StackPanel>
+
+        <Border x:Name="BookAppointmentPanel" Background="White" BorderBrush="Black" CornerRadius="10" Padding="10" BorderThickness="1" Margin="0,5">
+            <StackPanel Margin="0">
+                <Label FontSize="16" FontWeight="Bold" Content="Book an Appointment"></Label>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                    <DatePicker x:Name="ApptPicker" Margin="10" HorizontalAlignment="Left" Width="200"></DatePicker>
+                    <TextBox Name="ApptTime" Width="72" Text="2:00 PM" VerticalAlignment="Center"></TextBox>
+                    <Button Margin="10" Name="BookAppointmentButton" Content="Book an Appointment" HorizontalAlignment="Right" Width="150" VerticalAlignment="Center" Click="BookAppointmentButton_Click"></Button>
+                </StackPanel>
+
+                <ComboBox Margin="10" Width="200" HorizontalAlignment="Left" SelectedIndex="0">
+                    <ComboBoxItem Content="Select a doctor ..."></ComboBoxItem>
+                    <ComboBoxItem Content="Dr. Taras Gryba"></ComboBoxItem>
+                    <ComboBoxItem Content="Dr. Fadi Botros"></ComboBoxItem>
+                    <ComboBoxItem Content="Dr. Indiana Jones"></ComboBoxItem>
+                    <ComboBoxItem Content="Bill Nye"></ComboBoxItem>
+                </ComboBox>
+
+            </StackPanel>
+        </Border>
+
+        <Border x:Name="MedicalHistoryPanel" Background="White" BorderBrush="Black" CornerRadius="10" Padding="10" BorderThickness="1" Margin="0,5">
+
+            <StackPanel>
+                <StackPanel Margin="0">
+                    <Label FontSize="16" FontWeight="Bold" Content="Medical History"></Label>
+                    <Image Margin="10,0,10,10" Height="100" Source="/SENG471-Prototype;component/X-ray-hands.jpg" HorizontalAlignment="Left" ></Image>
+                </StackPanel>
+
+                <StackPanel Margin="10,10,10,0" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button x:Name="MedicalRecordButton" Margin="5,10" Width="130" Content="Add Medical Record" Click="MedicalRecordButton_Click"></Button>
+                    <Button x:Name="TriageButton" Margin="5,10" Width="130" Content="Add Triage" Click="MedicalRecordButton_Click"></Button>
+                    <Button Margin="5,10" Content="Print Record" HorizontalAlignment="Right" Width="100"></Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
         
-        <StackPanel x:Name="MedicalHistoryPanel">
-            <Label FontWeight="Bold" Margin="10,10,10,0" Content="Medical History"></Label>
-            <Image Margin="10,0,10,10" Height="100" Source="/SENG471-Prototype;component/X-ray-hands.jpg" HorizontalAlignment="Left" ></Image>
-        </StackPanel>
-
-        <StackPanel Margin="10" HorizontalAlignment="Right" Orientation="Horizontal">
-            <Button x:Name="MedicalRecordButton" Margin="10" Width="130" Content="Add Medical Record" Click="MedicalRecordButton_Click"></Button>
-            <Button x:Name="TriageButton" Margin="10" Width="130" Content="Add Triage" Click="MedicalRecordButton_Click"></Button>
-            <Button Margin="10" Content="Print Record" HorizontalAlignment="Right" Width="100"></Button>
-        </StackPanel>
-        
-
-        <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
-            <Button Margin="10" Name="CreateRecordButton" Content="Save Record" HorizontalAlignment="Right" Width="100" Click="CreateRecordButton_Click"></Button>
-            <Button Margin="10" Name="CancelButton" Content="Cancel" HorizontalAlignment="Right" Width="100" Click="CancelButton_Click"></Button>
-        </StackPanel>
-
     </StackPanel>
 </UserControl>

@@ -19,6 +19,7 @@ namespace SENG471_Prototype
     /// </summary>
     public partial class NewMedicalRecordWindow : UserControl
     {
+        public event EventHandlers.EmptyHandler OnCanceledMedicalRecord;
         public event EventHandlers.EmptyHandler OnCreatedMedicalRecord;
 
         public NewMedicalRecordWindow()
@@ -97,6 +98,12 @@ namespace SENG471_Prototype
             {
                 PopulateSampleData();
             }
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (OnCanceledMedicalRecord != null)
+                OnCanceledMedicalRecord();
         }
     }
 }

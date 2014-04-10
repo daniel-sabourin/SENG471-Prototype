@@ -5,17 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d">
     <StackPanel>
-        <Label Content="Welcome _______________" HorizontalAlignment="Center" Name="WelcomeLabel" VerticalAlignment="Center" />
+        <Label FontSize="16" FontWeight="Bold" Content="Welcome _______________" HorizontalAlignment="Center" Name="WelcomeLabel" VerticalAlignment="Center" />
 
-        <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button Margin="10" x:Name="CreateMedicalRecordButton" Content="Create New Medical Record" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CreateMedicalRecordButton_Click"></Button>
-            <Button Margin="10" x:Name="ViewScheduleButton" Content="View Appointments" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ViewScheduleButton_Click"></Button>
-            <Button Margin="10" x:Name="LogOutButton" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Log Out" Click="LogOutButton_Click"></Button>
+        <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="5" x:Name="CreateMedicalRecordButton" Content="Create New Medical Record" HorizontalAlignment="Center" VerticalAlignment="Center" Click="CreateMedicalRecordButton_Click"></Button>
+            <Button Margin="5" x:Name="ViewScheduleButton" Content="View Appointments" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ViewScheduleButton_Click"></Button>
+            <Button Margin="5" x:Name="LogOutButton" HorizontalAlignment="Center" VerticalAlignment="Center" Content="Log Out" Click="LogOutButton_Click"></Button>
 
 
         </StackPanel>
 
-        <StackPanel Orientation="Horizontal" Margin="10">
+        <StackPanel Orientation="Horizontal" Margin="5">
             <TextBox x:Name="SearchQueryBox" Width="400" VerticalAlignment="Center" Margin="10,0,0,0" KeyUp="SearchQueryBox_KeyUp"></TextBox>
             <Button x:Name="SearchButton" Width="72" Margin="10" Content="Search" VerticalAlignment="Center" Click="SearchButton_Click"></Button>
         </StackPanel>

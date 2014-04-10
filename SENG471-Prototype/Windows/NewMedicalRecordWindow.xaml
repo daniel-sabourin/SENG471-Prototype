@@ -4,8 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" KeyUp="UserControl_KeyUp">
-    <StackPanel Margin="10">
+    <Border Background="White" BorderBrush="Black" CornerRadius="10" Padding="10" BorderThickness="1" Margin="0,5">
+    <StackPanel>
 
+        
         <StackPanel Margin="10">
             <StackPanel Orientation="Horizontal">
                 <Label Content="First"></Label>
@@ -56,7 +58,10 @@
             </StackPanel>
         </StackPanel>
 
-        <Button Margin="10" Name="CreateRecordButton" Content="Create Record" HorizontalAlignment="Right" Width="100" Click="CreateRecordButton_Click"></Button>
-
-    </StackPanel>
+            <StackPanel Margin="10,0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Margin="5,10" Name="CreateRecordButton" Content="Create Record" HorizontalAlignment="Right" Width="100" Click="CreateRecordButton_Click"></Button>
+                <Button Margin="5,10" Name="CancelButton" Content="Cancel" HorizontalAlignment="Right" Width="100" Click="CancelButton_Click"></Button>
+            </StackPanel>
+        </StackPanel>
+        </Border>
 </UserControl>

@@ -72,6 +72,12 @@ namespace SENG471_Prototype
                     transitionWindow(ye);
                 };
 
+                nmrw.OnCanceledMedicalRecord += delegate()
+                {
+                    transitionWindow(WindowDictionary["primary"]);
+                };
+
+
                 transitionWindow(nmrw);
             };
 
