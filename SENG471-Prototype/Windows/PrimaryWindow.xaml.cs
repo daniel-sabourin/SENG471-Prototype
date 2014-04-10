@@ -26,13 +26,66 @@ namespace SENG471_Prototype
             set
             {
                 _userRole = value;
-                TestLabel.Content = value;
+                WelcomeLabel.Content = "Welcome " + value;
+
+                switch (value)
+                {
+                    case "doctor":
+                        CreateMedicalRecordButton.Visibility = Visibility.Collapsed;
+
+                        break;
+
+                    case "nurse":
+                        CreateMedicalRecordButton.Visibility = Visibility.Collapsed;
+
+                        break;
+                    case "clerk":
+                        CreateMedicalRecordButton.Visibility = Visibility.Visible;
+
+                        break;
+
+                    default:
+                        break;
+
+                }
             }
         }
+
+
+        public event EventHandlers.EmptyHandler OnCreateMedicalRecord;
 
         public PrimaryWindow()
         {
             InitializeComponent();
         }
+
+        private void CreateMedicalRecordButton_Click(object sender, RoutedEventArgs e)
+        {
+            if(OnCreateMedicalRecord != null)
+            {
+                OnCreateMedicalRecord();
+            }
+        }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            string text = SearchQueryBox.Text.ToLower();
+
+            switch (text) {
+                case "daniel sabourin":
+                case "1234567890":
+                case "(403) 123 - 4567":
+                case "12345678901234567890":
+
+                    MessageBox.Show("Match");
+                    break;
+
+                default:
+                    MessageBox.Show("No matches found!");
+                    break;
+
+            }
+        }
+
     }
 }

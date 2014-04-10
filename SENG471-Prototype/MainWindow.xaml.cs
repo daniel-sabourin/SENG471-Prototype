@@ -39,11 +39,9 @@ namespace SENG471_Prototype
         {
             WindowDictionary = new Dictionary<string, UserControl>();
 
+            #region Login
             LoginScreen loginScreen = new LoginScreen();
             WindowDictionary.Add("login", loginScreen);
-
-            PrimaryWindow primaryWindow = new PrimaryWindow();
-            WindowDictionary.Add("primary", primaryWindow);
 
             loginScreen.OnLogin += delegate(string username)
             {
@@ -55,6 +53,23 @@ namespace SENG471_Prototype
                 
                 transitionWindow(primary);
             };
+            #endregion
+            #region Primary Window
+            PrimaryWindow primaryWindow = new PrimaryWindow();
+            WindowDictionary.Add("primary", primaryWindow);
+
+            primaryWindow.OnCreateMedicalRecord += delegate()
+            {
+                NewMedicalRecordWindow nmrw = new NewMedicalRecordWindow();
+                nmrw.OnCreatedMedicalRecord += delegate()
+                {
+                    transitionWindow(WindowDictionary["primary"]);
+                };
+
+                transitionWindow(nmrw);
+            };
+
+            #endregion
 
             MainGrid.Children.Add(loginScreen);
         }

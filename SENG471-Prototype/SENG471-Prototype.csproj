@@ -55,6 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Windows\NewMedicalRecordWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\PrimaryWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -70,6 +74,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EventHandlers.cs" />
+    <Compile Include="Windows\NewMedicalRecordWindow.xaml.cs">
+      <DependentUpon>NewMedicalRecordWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\PrimaryWindow.xaml.cs">
       <DependentUpon>PrimaryWindow.xaml</DependentUpon>

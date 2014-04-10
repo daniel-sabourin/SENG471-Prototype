@@ -19,8 +19,8 @@ namespace SENG471_Prototype
     /// </summary>
     public partial class LoginScreen : UserControl
     {
-        public delegate void LoginHandler(string username);
-        public event LoginHandler OnLogin;
+
+        public event EventHandlers.LoginHandler OnLogin;
 
         public LoginScreen()
         {
@@ -41,7 +41,7 @@ namespace SENG471_Prototype
                     break;
 
                 default:
-                    MessageBox.Show("Invalid username or password");
+                    MessageBox.Show("Invalid username or password!");
                     break;
             }
         }

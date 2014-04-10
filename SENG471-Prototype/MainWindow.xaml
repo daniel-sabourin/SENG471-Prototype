@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:w="clr-namespace:SENG471_Prototype"
         Title="MainWindow" Height="350" Width="525" WindowState="Maximized" WindowStyle="None" KeyUp="Window_KeyUp" Loaded="Window_Loaded">
-    <Grid Name="MainGrid">
+    <Grid Name="MainGrid" HorizontalAlignment="Center" VerticalAlignment="Center">
         
     </Grid>
 </Window>
