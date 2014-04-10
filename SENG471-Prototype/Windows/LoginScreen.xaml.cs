@@ -51,6 +51,11 @@ namespace SENG471_Prototype
             login(UsernameBox.Text, PasswordBox.Password);
         }
 
+        public void ClearPassword()
+        {
+            PasswordBox.Password = "";
+        }
+
         private void Boxes_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

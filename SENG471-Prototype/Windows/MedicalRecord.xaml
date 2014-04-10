@@ -61,14 +61,22 @@
             <TextBox Name="ApptTime" Width="72" Text="2:00 PM" VerticalAlignment="Center"></TextBox>
             <Button Margin="10" Name="BookAppointmentButton" Content="Book an Appointment" HorizontalAlignment="Right" Width="150" VerticalAlignment="Center" Click="BookAppointmentButton_Click"></Button>
         </StackPanel>
-        
-        
+
+        <StackPanel x:Name="MedicalHistoryPanel">
+            <Label FontWeight="Bold" Margin="10,10,10,0" Content="Medical History"></Label>
+            <Image Margin="10,0,10,10" Height="100" Source="/SENG471-Prototype;component/X-ray-hands.jpg" HorizontalAlignment="Left" ></Image>
+        </StackPanel>
+
+        <StackPanel Margin="10" HorizontalAlignment="Right" Orientation="Horizontal">
+            <Button x:Name="MedicalRecordButton" Margin="10" Width="130" Content="Add Medical Record" Click="MedicalRecordButton_Click"></Button>
+            <Button x:Name="TriageButton" Margin="10" Width="130" Content="Add Triage" Click="MedicalRecordButton_Click"></Button>
+            <Button Margin="10" Content="Print Record" HorizontalAlignment="Right" Width="100"></Button>
+        </StackPanel>
         
 
         <StackPanel Margin="10" Orientation="Horizontal" HorizontalAlignment="Right">
             <Button Margin="10" Name="CreateRecordButton" Content="Save Record" HorizontalAlignment="Right" Width="100" Click="CreateRecordButton_Click"></Button>
             <Button Margin="10" Name="CancelButton" Content="Cancel" HorizontalAlignment="Right" Width="100" Click="CancelButton_Click"></Button>
-            <Button Margin="10" Content="Print Record" HorizontalAlignment="Right" Width="100" Click="CancelButton_Click"></Button>
         </StackPanel>
 
     </StackPanel>

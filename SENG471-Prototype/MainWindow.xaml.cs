@@ -51,6 +51,8 @@ namespace SENG471_Prototype
                 UserControl primary = WindowDictionary["primary"];
                 PrimaryWindow ye = (PrimaryWindow)primary;
                 ye.UserRole = UserRole;
+                ye.SearchResultsPanel.Visibility = System.Windows.Visibility.Hidden;
+                ye.SearchQueryBox.Text = "";
                 
                 transitionWindow(primary);
             };
@@ -64,7 +66,10 @@ namespace SENG471_Prototype
                 NewMedicalRecordWindow nmrw = new NewMedicalRecordWindow();
                 nmrw.OnCreatedMedicalRecord += delegate()
                 {
-                    transitionWindow(WindowDictionary["primary"]);
+                    PrimaryWindow ye = (PrimaryWindow)WindowDictionary["primary"];
+                    ye.SearchResultsPanel.Visibility = System.Windows.Visibility.Hidden;
+                    ye.SearchQueryBox.Text = "";
+                    transitionWindow(ye);
                 };
 
                 transitionWindow(nmrw);
@@ -72,13 +77,7 @@ namespace SENG471_Prototype
 
             primaryWindow.OnSelectedMedicalRecord += delegate()
             {
-                MedicalRecord mr = new MedicalRecord();
-                mr.OnSavedMedicalRecord += delegate()
-                {
-                    transitionWindow(WindowDictionary["primary"]);
-                };
-
-                transitionWindow(mr);
+                transitionWindow(CreateMedicalRecordPage());
             };
 
             primaryWindow.OnScheduleClicked += delegate()
@@ -86,13 +85,7 @@ namespace SENG471_Prototype
                 ScheduleWindow sw = new ScheduleWindow();
                 sw.OnSelectedMedicalRecord += delegate()
                 {
-                    MedicalRecord mr = new MedicalRecord();
-                    mr.OnSavedMedicalRecord += delegate()
-                    {
-                        transitionWindow(WindowDictionary["primary"]);
-                    };
-
-                    transitionWindow(mr);
+                    transitionWindow(CreateMedicalRecordPage());
                 };
 
                 transitionWindow(sw);
@@ -100,7 +93,9 @@ namespace SENG471_Prototype
 
             primaryWindow.OnLogoutClicked += delegate()
             {
-                transitionWindow(WindowDictionary["login"]);
+                LoginScreen ls = (LoginScreen)WindowDictionary["login"];
+                ls.ClearPassword();
+                transitionWindow(ls);
             };
 
             #endregion
@@ -112,6 +107,19 @@ namespace SENG471_Prototype
         {
             MainGrid.Children.Clear();
             MainGrid.Children.Add(newWindow);
+        }
+
+        private MedicalRecord CreateMedicalRecordPage()
+        {
+            MedicalRecord mr = new MedicalRecord();
+            mr.OnSavedMedicalRecord += delegate()
+            {
+                transitionWindow(WindowDictionary["primary"]);
+            };
+
+            mr.ChangeUserRoleInterface(UserRole);
+
+            return mr;
         }
     }
 }

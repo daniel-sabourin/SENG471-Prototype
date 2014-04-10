@@ -63,6 +63,36 @@ namespace SENG471_Prototype
             return true;
         }
 
+        public void ChangeUserRoleInterface(string role)
+        {
+            switch (role)
+            {
+                case "doctor":
+                    MedicalRecordButton.Visibility = Visibility.Visible;
+                    TriageButton.Visibility = Visibility.Collapsed;
+                    MedicalHistoryPanel.Visibility = Visibility.Visible;
+                    break;
+
+                case "nurse":
+                    MedicalRecordButton.Visibility = Visibility.Collapsed;
+                    TriageButton.Visibility = Visibility.Visible;
+                    MedicalHistoryPanel.Visibility = Visibility.Visible;
+
+                    break;
+                case "clerk":
+                    MedicalRecordButton.Visibility = Visibility.Collapsed;
+                    TriageButton.Visibility = Visibility.Collapsed;
+                    MedicalHistoryPanel.Visibility = Visibility.Collapsed;
+
+                    break;
+
+                default:
+                    break;
+
+            }
+
+        }
+
         private void PopulateSampleData()
         {
             FirstNameBox.Text = "Daniel";
@@ -106,6 +136,13 @@ namespace SENG471_Prototype
                 MessageBox.Show("Please select a date and time");
 
             }
+        }
+
+        private void MedicalRecordButton_Click(object sender, RoutedEventArgs e)
+        {
+            System.Windows.Forms.FolderBrowserDialog fbd = new System.Windows.Forms.FolderBrowserDialog();
+            fbd.ShowNewFolderButton = true;
+            fbd.ShowDialog();
         }
     }
 }
